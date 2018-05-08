@@ -13,4 +13,5 @@ public class EarthQuake {
     }
 
 
+    //NEED TO IMPLEMENT GETTER METHODS************************************
 }
