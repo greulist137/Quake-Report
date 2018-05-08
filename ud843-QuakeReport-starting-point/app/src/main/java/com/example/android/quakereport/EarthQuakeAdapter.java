@@ -41,17 +41,17 @@ public class EarthQuakeAdapter extends ArrayAdapter<EarthQuake> {
         // Find the TextView in the list_item.xml layout with the Magnitude
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.version_name);
         // Set the magnitude to the Textview
-        nameTextView.setText(currentEarthQuake.getVersionName());
+        nameTextView.setText(currentEarthQuake.getMagnitude());
 
         // Find the TextView in the list_item.xml layout with the City name
         TextView numberTextView = (TextView) listItemView.findViewById(R.id.version_number);
         // Set the City name to the TextView
-        numberTextView.setText(currentEarthQuake.getVersionNumber());
+        numberTextView.setText(currentEarthQuake.getCity());
 
         // Find the ImageView in the list_item.xml layout with the Date of the EarthQuake
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
         // Set the Date of the Earthquake to the Textview
-        iconView.setImageResource(currentEarthQuake.getImageResourceId());
+        iconView.setImageResource(currentEarthQuake.getDate());
 
         // Return the whole list item layout (containing 3 TextViews)
         // so that it can be shown in the ListView
