@@ -11,4 +11,6 @@ public class EarthQuake {
         mCityOfEarthquake = cityOfEarthquake;
         mDateOfEarthquake = dateOfEarthquake;
     }
+
+
 }
