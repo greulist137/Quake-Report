@@ -12,7 +12,6 @@ public class EarthQuake {
         mDateOfEarthquake = dateOfEarthquake;
     }
 
-    //NEED TO IMPLEMENT GETTER METHODS************************************
     //Returns the Magnitude of the current EarthQauke
     public double getMagnitude(){
         return mMagnitude;
