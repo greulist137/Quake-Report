@@ -60,13 +60,9 @@ public final class QueryUtils {
                 JSONObject properties = currentItem.getJSONObject("properties");
                 double mag = properties.getDouble("mag");
                 String loc = properties.getString("place");
-                String date = properties.getString("time");
-                long timeInMilliseconds = Long.parseLong(date);
-                Date dateObject = new Date(timeInMilliseconds);
-                SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
-                String dateToDisplay = dateFormatter.format(dateObject);
+                long date = properties.getLong("time");
 
-                EarthQuake newQuake = new EarthQuake(mag, loc, dateToDisplay);
+                EarthQuake newQuake = new EarthQuake(mag, loc, date);
                 earthquakes.add(newQuake);
 
             }

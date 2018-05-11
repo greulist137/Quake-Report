@@ -4,9 +4,9 @@ public class EarthQuake {
 
     private double mMagnitude;
     private String mCityOfEarthquake;
-    private String mDateOfEarthquake;
+    private long mDateOfEarthquake;
 
-    public EarthQuake(double magnitude, String cityOfEarthquake, String dateOfEarthquake){
+    public EarthQuake(double magnitude, String cityOfEarthquake, long dateOfEarthquake){
         mMagnitude = magnitude;
         mCityOfEarthquake = cityOfEarthquake;
         mDateOfEarthquake = dateOfEarthquake;
@@ -23,7 +23,7 @@ public class EarthQuake {
     }
 
     //Returns the date of the earthquake
-    public String getDate(){
+    public long getDate(){
         return mDateOfEarthquake;
     }
 
