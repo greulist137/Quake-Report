@@ -6,6 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 import java.util.ArrayList;
 
 /**
@@ -50,13 +54,19 @@ public final class QueryUtils {
             // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
             // build up a list of Earthquake objects with the corresponding data.
             JSONObject root = new JSONObject(SAMPLE_JSON_RESPONSE);
-            JSONArray featuresArray = root.getJSONArray("Feature");
+            JSONArray featuresArray = root.getJSONArray("features");
             for(int x = 0; x < featuresArray.length(); x++){
-                JSONObject properties = featuresArray.getJSONObject(x);
-                double mag = properties.getDouble("");
-                String loc = properties.getString("");
-                String date = properties.getString("");
-                EarthQuake newQuake = new EarthQuake(mag, loc, date);
+                JSONObject currentItem = featuresArray.getJSONObject(x);
+                JSONObject properties = currentItem.getJSONObject("properties");
+                double mag = properties.getDouble("mag");
+                String loc = properties.getString("place");
+                String date = properties.getString("time");
+                long timeInMilliseconds = Long.parseLong(date);
+                Date dateObject = new Date(timeInMilliseconds);
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+                String dateToDisplay = dateFormatter.format(dateObject);
+
+                EarthQuake newQuake = new EarthQuake(mag, loc, dateToDisplay);
                 earthquakes.add(newQuake);
 
             }
